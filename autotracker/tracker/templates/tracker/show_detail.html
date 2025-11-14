@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ show.title }}</h2>
+<p>RSS URL: <a href="{{ show.rss_url }}" target="_blank">{{ show.rss_url }}</a></p>
+<p>Last checked: {{ show.last_checked_at|default:'Never' }}</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Published</th>
+            <th>Downloaded</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for episode in episodes %}
+        <tr>
+            <td>{{ episode.title }}</td>
+            <td>{{ episode.published_at|default:'Unknown' }}</td>
+            <td>{{ episode.is_downloaded|yesno:"Yes,No" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No episodes yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
