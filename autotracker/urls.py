@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', RedirectView.as_view(pattern_name='dashboard', permanent=False), name='home'),
-    path('', include('autotracker.tracker.urls')),
+    path('', include('tracker.urls')),
 ]

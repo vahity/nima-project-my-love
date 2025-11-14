@@ -6,7 +6,7 @@ import time
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'autotracker.settings')
 django.setup()
 
-from autotracker.tracker.services.daily_check import run_daily_check  # noqa: E402
+from tracker.services.daily_check import run_daily_check  # noqa: E402
 
 
 def main():
